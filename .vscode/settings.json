@@ -1,0 +1,15 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/Video/.venv/Scripts/python.exe",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/Video/deepfake_detector",
+        "${workspaceFolder}/Video/deepfake_detector/src"
+    ],
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/Video/deepfake_detector",
+        "${workspaceFolder}/Video/deepfake_detector/src"
+    ],
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none",
+        "reportMissingModuleSource": "none"
+    }
+}

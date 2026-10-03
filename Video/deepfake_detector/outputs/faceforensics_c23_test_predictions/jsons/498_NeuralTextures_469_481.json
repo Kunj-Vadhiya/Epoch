@@ -1,0 +1,58 @@
+{
+  "video_id": "498_NeuralTextures_469_481",
+  "manipulation_type": "NeuralTextures",
+  "ground_truth": "FAKE",
+  "prediction": "REAL",
+  "is_correct": false,
+  "fake_score": 0.4965,
+  "threshold": 0.5,
+  "aggregation_strategy": "top_k_mean",
+  "frame_predictions": [
+    {
+      "frame_index": 0,
+      "timestamp_seconds": 0.0,
+      "fake_probability": 0.4611
+    },
+    {
+      "frame_index": 1,
+      "timestamp_seconds": 1.967,
+      "fake_probability": 0.4285
+    },
+    {
+      "frame_index": 2,
+      "timestamp_seconds": 3.933,
+      "fake_probability": 0.5248
+    },
+    {
+      "frame_index": 3,
+      "timestamp_seconds": 5.9,
+      "fake_probability": 0.4693
+    },
+    {
+      "frame_index": 4,
+      "timestamp_seconds": 7.867,
+      "fake_probability": 0.481
+    },
+    {
+      "frame_index": 5,
+      "timestamp_seconds": 9.833,
+      "fake_probability": 0.4239
+    },
+    {
+      "frame_index": 6,
+      "timestamp_seconds": 11.8,
+      "fake_probability": 0.4475
+    },
+    {
+      "frame_index": 7,
+      "timestamp_seconds": 13.767,
+      "fake_probability": 0.4839
+    }
+  ],
+  "suspicious_windows": [],
+  "strongest_frame": {
+    "timestamp": "00:03.9",
+    "fake_probability": 0.5248
+  },
+  "annotated_video_path": "outputs/faceforensics_c23_test_predictions/videos/498_NeuralTextures_469_481_annotated.mp4"
+}

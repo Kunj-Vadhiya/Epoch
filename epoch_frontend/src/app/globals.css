@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #F5F6F3;
+    --surface: #FFFFFF;
+    --border: #E5E7EB;
+    --tech-blue: #356AE6;
+    --tech-blue-light: #EBF1FD;
+    --tech-blue-dark: #244DB7;
+    --accent-violet: #7768D8;
+    --warning-amber: #D99A24;
+    --risk-red: #D94A4A;
+    --text-primary: #111827;
+    --text-secondary: #667085;
+  }
+
+  body {
+    background-color: #F5F6F3;
+    color: #111827;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F6F3;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Forensic Grid Patterns */
+.bg-forensic-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(229, 231, 235, 0.7) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(229, 231, 235, 0.7) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(102, 112, 133, 0.15) 1px, transparent 1px);
+}
+
+/* Technical Monospace Micro-labels */
+.mono-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Glass Panels with Clean Forensics Aesthetic */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 231, 235, 0.9);
+}
+
+/* Crosshair Markers */
+.crosshair-corner {
+  position: relative;
+}
+.crosshair-corner::before,
+.crosshair-corner::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-color: #356AE6;
+  pointer-events: none;
+}
+.crosshair-corner::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #356AE6;
+  border-left: 2px solid #356AE6;
+}
+.crosshair-corner::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid #356AE6;
+  border-right: 2px solid #356AE6;
+}
+
+/* Scanline Overlay for Video & Inspection */
+.scanline-effect {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(53, 106, 230, 0.03) 50%,
+    rgba(53, 106, 230, 0.03)
+  );
+  background-size: 100% 4px;
+}

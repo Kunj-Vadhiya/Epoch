@@ -1,0 +1,99 @@
+# Configuration for "Is That Really Them?" — Deepfake Scam Ad Detector
+# Designed for Google Colab NVIDIA T4 (2-Hour Budget) & Local Inference
+
+project:
+  name: "deepfake-scam-ad-detector"
+  version: "1.0.0"
+  description: "End-to-end Deepfake Video Detection Module"
+
+dataset:
+  name: "bitmind/FaceForensicsC23"
+  huggingface_repo: "bitmind/FaceForensicsC23"
+  split: "train"
+  streaming: true
+  num_real: 500
+  num_fake: 500
+  modes:
+    fast_mode:
+      total_videos: 800
+      train: 640
+      val: 80
+      test: 80
+    normal_mode:
+      total_videos: 1000
+      train: 800
+      val: 100
+      test: 100
+  seed: 42
+  local_cache_dir: "data/faceforensics_c23"
+  manifest_path: "data/faceforensics_manifest.csv"
+
+video_processing:
+  num_frames: 16
+  target_size: [224, 224]
+  fps_fallback: 25.0
+  tracking:
+    method: "iou_tracker"
+    margin_ratio: 0.20
+    iou_threshold: 0.30
+  face_detection:
+    method: "opencv_haar" # "opencv_haar", "opencv_dnn", or "mtcnn"
+    margin_ratio: 0.15    # 15% margin around detected face
+    fallback_to_center_crop: true
+
+augmentation:
+  train:
+    horizontal_flip_prob: 0.5
+    rotation_degrees: 10
+    color_jitter:
+      brightness: 0.1
+      contrast: 0.1
+      saturation: 0.1
+      hue: 0.05
+  normalization:
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+
+model:
+  architecture: "efficientnet_b0"
+  pretrained: true
+  num_classes: 2
+  classes:
+    0: "REAL"
+    1: "FAKE"
+  dropout: 0.3
+  saved_model_path: "models/deepfake_efficientnet_b0_best.pth"
+
+training:
+  batch_size: 32
+  num_epochs: 5
+  learning_rate_head: 0.001
+  learning_rate_backbone: 0.0001
+  weight_decay: 0.0001
+  use_amp: true
+  num_workers: 2
+  early_stopping:
+    patience: 2
+    metric: "val_roc_auc"
+    mode: "max"
+
+aggregation:
+  default_strategy: "top_k_mean" # "mean", "max", "top_k_mean"
+  top_k: 3
+  decision_threshold: 0.50
+
+explainability:
+  gradcam_target_layer: "features.8" # Final convolutional block of EfficientNet-B0
+  output_dir: "outputs/explanations"
+  suspicious_score_threshold: 0.70
+
+multimodal_risk:
+  weights:
+    video_deepfake: 0.45
+    lip_sync: 0.20
+    voice_synthetic: 0.15
+    scam_text: 0.10
+    ocr_scam: 0.10
+  thresholds:
+    low: 0.35
+    medium: 0.70

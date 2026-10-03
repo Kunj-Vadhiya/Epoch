@@ -1,0 +1,3 @@
+video_id,ground_truth,prediction,is_correct,fake_score,video_file,json_file
+598,REAL,REAL,True,0.4464,outputs/testing_predictions/videos/598_annotated.mp4,outputs/testing_predictions/jsons/598.json
+119,REAL,REAL,True,0.4489,outputs/testing_predictions/videos/119_annotated.mp4,outputs/testing_predictions/jsons/119.json

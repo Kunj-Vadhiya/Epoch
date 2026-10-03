@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+env/
+venv/
+
+# Environment secrets
+.env
+.env.local
+
+# Temporary media files
+temp_media/
+temp_uploads/
+*.mp4
+*.mov
+*.wav
+
+# System files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,58 @@
+{
+  "video_id": "380_Deepfakes_884_968",
+  "manipulation_type": "Deepfakes",
+  "ground_truth": "FAKE",
+  "prediction": "REAL",
+  "is_correct": false,
+  "fake_score": 0.4564,
+  "threshold": 0.5,
+  "aggregation_strategy": "top_k_mean",
+  "frame_predictions": [
+    {
+      "frame_index": 0,
+      "timestamp_seconds": 0.0,
+      "fake_probability": 0.4057
+    },
+    {
+      "frame_index": 1,
+      "timestamp_seconds": 1.92,
+      "fake_probability": 0.4073
+    },
+    {
+      "frame_index": 2,
+      "timestamp_seconds": 3.88,
+      "fake_probability": 0.421
+    },
+    {
+      "frame_index": 3,
+      "timestamp_seconds": 5.84,
+      "fake_probability": 0.3707
+    },
+    {
+      "frame_index": 4,
+      "timestamp_seconds": 7.8,
+      "fake_probability": 0.4261
+    },
+    {
+      "frame_index": 5,
+      "timestamp_seconds": 9.76,
+      "fake_probability": 0.4216
+    },
+    {
+      "frame_index": 6,
+      "timestamp_seconds": 11.72,
+      "fake_probability": 0.4999
+    },
+    {
+      "frame_index": 7,
+      "timestamp_seconds": 13.68,
+      "fake_probability": 0.4432
+    }
+  ],
+  "suspicious_windows": [],
+  "strongest_frame": {
+    "timestamp": "00:11.7",
+    "fake_probability": 0.4999
+  },
+  "annotated_video_path": "outputs/faceforensics_c23_test_predictions/videos/380_Deepfakes_884_968_annotated.mp4"
+}

@@ -1,0 +1,12 @@
+{
+  "total_test_videos": 500,
+  "accuracy": 0.53,
+  "precision": 0.5381,
+  "recall": 0.424,
+  "f1_score": 0.4743,
+  "roc_auc": 0.5417,
+  "correct_predictions": 265,
+  "incorrect_predictions": 235,
+  "output_videos_dir": "outputs/faceforensics_c23_test_predictions/videos",
+  "output_jsons_dir": "outputs/faceforensics_c23_test_predictions/jsons"
+}

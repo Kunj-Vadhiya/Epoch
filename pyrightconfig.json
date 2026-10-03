@@ -1,0 +1,10 @@
+{
+    "venvPath": "Video",
+    "venv": ".venv",
+    "extraPaths": [
+        "Video/deepfake_detector",
+        "Video/deepfake_detector/src"
+    ],
+    "reportMissingImports": false,
+    "reportMissingTypeStubs": false
+}

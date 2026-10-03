@@ -1,0 +1,20 @@
+{
+  "model_type": "AudioCNN",
+  "task": "audio_deepfake_detection",
+  "classes": {
+    "0": "REAL",
+    "1": "AI"
+  },
+  "input_shape": [
+    1,
+    64,
+    313
+  ],
+  "mel_bins": 64,
+  "time_frames": 313,
+  "sample_rate": 16000,
+  "n_fft": 1024,
+  "hop_length": 512,
+  "feature": "log_mel_spectrogram",
+  "checkpoint": "best_audio_deepfake.pt"
+}

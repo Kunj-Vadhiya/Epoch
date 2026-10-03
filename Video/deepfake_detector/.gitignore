@@ -1,0 +1,32 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+env/
+venv/
+
+# Large model artifacts
+*.pth
+*.pt
+*.onnx
+!models/README.md
+
+# Cached video data
+data/raw_samples/
+data/*.mp4
+temp_uploads/
+
+# Outputs
+outputs/explanations/*.jpg
+outputs/explanations/*.png
+outputs/*.png
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Secrets & Local Environment
+.env
+.env.local
+temp_media/

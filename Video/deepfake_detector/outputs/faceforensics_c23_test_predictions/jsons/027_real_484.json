@@ -1,0 +1,58 @@
+{
+  "video_id": "027_real_484",
+  "manipulation_type": "real",
+  "ground_truth": "REAL",
+  "prediction": "FAKE",
+  "is_correct": false,
+  "fake_score": 0.5303,
+  "threshold": 0.5,
+  "aggregation_strategy": "top_k_mean",
+  "frame_predictions": [
+    {
+      "frame_index": 0,
+      "timestamp_seconds": 0.0,
+      "fake_probability": 0.4575
+    },
+    {
+      "frame_index": 1,
+      "timestamp_seconds": 1.5,
+      "fake_probability": 0.4904
+    },
+    {
+      "frame_index": 2,
+      "timestamp_seconds": 3.0,
+      "fake_probability": 0.5524
+    },
+    {
+      "frame_index": 3,
+      "timestamp_seconds": 4.533,
+      "fake_probability": 0.5145
+    },
+    {
+      "frame_index": 4,
+      "timestamp_seconds": 6.033,
+      "fake_probability": 0.5144
+    },
+    {
+      "frame_index": 5,
+      "timestamp_seconds": 7.567,
+      "fake_probability": 0.4507
+    },
+    {
+      "frame_index": 6,
+      "timestamp_seconds": 9.067,
+      "fake_probability": 0.524
+    },
+    {
+      "frame_index": 7,
+      "timestamp_seconds": 10.6,
+      "fake_probability": 0.3649
+    }
+  ],
+  "suspicious_windows": [],
+  "strongest_frame": {
+    "timestamp": "00:03.0",
+    "fake_probability": 0.5524
+  },
+  "annotated_video_path": "outputs/faceforensics_c23_test_predictions/videos/027_real_484_annotated.mp4"
+}

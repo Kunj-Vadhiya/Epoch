@@ -1,0 +1,4 @@
+video_name,ground_truth,prediction,deepfake_label,real_probability,fake_probability,confidence,uncertainty,scam_signals
+unseen_deepfake_actor_scam.mp4,FAKE,UNCERTAIN,UNCERTAIN,0.5072,0.4928,0.7167,0.46,[]
+unseen_deepfake_faceswap_ad.mp4,FAKE,UNCERTAIN,UNCERTAIN,0.4932,0.5068,0.7075,0.46,[]
+unseen_real_interview_01.mp4,REAL,UNCERTAIN,UNCERTAIN,0.4782,0.5218,0.6771,0.46,[]

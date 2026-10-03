@@ -1,0 +1,58 @@
+{
+  "video_id": "266_DeepFakeDetection_11_26__kitchen_still__7C0VKV43",
+  "manipulation_type": "DeepFakeDetection",
+  "ground_truth": "FAKE",
+  "prediction": "FAKE",
+  "is_correct": true,
+  "fake_score": 0.5441,
+  "threshold": 0.5,
+  "aggregation_strategy": "top_k_mean",
+  "frame_predictions": [
+    {
+      "frame_index": 0,
+      "timestamp_seconds": 0.0,
+      "fake_probability": 0.4712
+    },
+    {
+      "frame_index": 1,
+      "timestamp_seconds": 4.667,
+      "fake_probability": 0.4662
+    },
+    {
+      "frame_index": 2,
+      "timestamp_seconds": 9.333,
+      "fake_probability": 0.4977
+    },
+    {
+      "frame_index": 3,
+      "timestamp_seconds": 14.0,
+      "fake_probability": 0.4981
+    },
+    {
+      "frame_index": 4,
+      "timestamp_seconds": 18.708,
+      "fake_probability": 0.4997
+    },
+    {
+      "frame_index": 5,
+      "timestamp_seconds": 23.375,
+      "fake_probability": 0.5296
+    },
+    {
+      "frame_index": 6,
+      "timestamp_seconds": 28.042,
+      "fake_probability": 0.5588
+    },
+    {
+      "frame_index": 7,
+      "timestamp_seconds": 32.75,
+      "fake_probability": 0.544
+    }
+  ],
+  "suspicious_windows": [],
+  "strongest_frame": {
+    "timestamp": "00:28.0",
+    "fake_probability": 0.5588
+  },
+  "annotated_video_path": "outputs/faceforensics_c23_test_predictions/videos/266_DeepFakeDetection_11_26__kitchen_still__7C0VKV43_annotated.mp4"
+}

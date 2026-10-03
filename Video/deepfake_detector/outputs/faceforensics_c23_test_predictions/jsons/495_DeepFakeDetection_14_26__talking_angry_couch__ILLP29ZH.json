@@ -1,0 +1,62 @@
+{
+  "video_id": "495_DeepFakeDetection_14_26__talking_angry_couch__ILLP29ZH",
+  "manipulation_type": "DeepFakeDetection",
+  "ground_truth": "FAKE",
+  "prediction": "FAKE",
+  "is_correct": true,
+  "fake_score": 0.6347,
+  "threshold": 0.5,
+  "aggregation_strategy": "top_k_mean",
+  "frame_predictions": [
+    {
+      "frame_index": 0,
+      "timestamp_seconds": 0.0,
+      "fake_probability": 0.6258
+    },
+    {
+      "frame_index": 1,
+      "timestamp_seconds": 9.167,
+      "fake_probability": 0.5877
+    },
+    {
+      "frame_index": 2,
+      "timestamp_seconds": 18.333,
+      "fake_probability": 0.5706
+    },
+    {
+      "frame_index": 3,
+      "timestamp_seconds": 27.5,
+      "fake_probability": 0.673
+    },
+    {
+      "frame_index": 4,
+      "timestamp_seconds": 36.667,
+      "fake_probability": 0.5441
+    },
+    {
+      "frame_index": 5,
+      "timestamp_seconds": 45.833,
+      "fake_probability": 0.5971
+    },
+    {
+      "frame_index": 6,
+      "timestamp_seconds": 55.0,
+      "fake_probability": 0.6002
+    },
+    {
+      "frame_index": 7,
+      "timestamp_seconds": 64.167,
+      "fake_probability": 0.6054
+    }
+  ],
+  "suspicious_windows": [
+    "00:00.0",
+    "00:27.5",
+    "00:55.0-01:04.2"
+  ],
+  "strongest_frame": {
+    "timestamp": "00:27.5",
+    "fake_probability": 0.673
+  },
+  "annotated_video_path": "outputs/faceforensics_c23_test_predictions/videos/495_DeepFakeDetection_14_26__talking_angry_couch__ILLP29ZH_annotated.mp4"
+}

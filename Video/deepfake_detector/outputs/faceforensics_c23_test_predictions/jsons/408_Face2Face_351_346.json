@@ -1,0 +1,58 @@
+{
+  "video_id": "408_Face2Face_351_346",
+  "manipulation_type": "Face2Face",
+  "ground_truth": "FAKE",
+  "prediction": "FAKE",
+  "is_correct": true,
+  "fake_score": 0.5047,
+  "threshold": 0.5,
+  "aggregation_strategy": "top_k_mean",
+  "frame_predictions": [
+    {
+      "frame_index": 0,
+      "timestamp_seconds": 0.0,
+      "fake_probability": 0.4543
+    },
+    {
+      "frame_index": 1,
+      "timestamp_seconds": 2.9,
+      "fake_probability": 0.4401
+    },
+    {
+      "frame_index": 2,
+      "timestamp_seconds": 5.833,
+      "fake_probability": 0.5053
+    },
+    {
+      "frame_index": 3,
+      "timestamp_seconds": 8.767,
+      "fake_probability": 0.4956
+    },
+    {
+      "frame_index": 4,
+      "timestamp_seconds": 11.667,
+      "fake_probability": 0.4668
+    },
+    {
+      "frame_index": 5,
+      "timestamp_seconds": 14.6,
+      "fake_probability": 0.4631
+    },
+    {
+      "frame_index": 6,
+      "timestamp_seconds": 17.533,
+      "fake_probability": 0.4833
+    },
+    {
+      "frame_index": 7,
+      "timestamp_seconds": 20.467,
+      "fake_probability": 0.5132
+    }
+  ],
+  "suspicious_windows": [],
+  "strongest_frame": {
+    "timestamp": "00:20.5",
+    "fake_probability": 0.5132
+  },
+  "annotated_video_path": "outputs/faceforensics_c23_test_predictions/videos/408_Face2Face_351_346_annotated.mp4"
+}

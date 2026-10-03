@@ -1,0 +1,58 @@
+{
+  "video_id": "366_FaceShifter_579_701",
+  "manipulation_type": "FaceShifter",
+  "ground_truth": "FAKE",
+  "prediction": "REAL",
+  "is_correct": false,
+  "fake_score": 0.4607,
+  "threshold": 0.5,
+  "aggregation_strategy": "top_k_mean",
+  "frame_predictions": [
+    {
+      "frame_index": 0,
+      "timestamp_seconds": 0.0,
+      "fake_probability": 0.469
+    },
+    {
+      "frame_index": 1,
+      "timestamp_seconds": 2.233,
+      "fake_probability": 0.4455
+    },
+    {
+      "frame_index": 2,
+      "timestamp_seconds": 4.5,
+      "fake_probability": 0.4457
+    },
+    {
+      "frame_index": 3,
+      "timestamp_seconds": 6.767,
+      "fake_probability": 0.4594
+    },
+    {
+      "frame_index": 4,
+      "timestamp_seconds": 9.033,
+      "fake_probability": 0.4344
+    },
+    {
+      "frame_index": 5,
+      "timestamp_seconds": 11.3,
+      "fake_probability": 0.4538
+    },
+    {
+      "frame_index": 6,
+      "timestamp_seconds": 13.567,
+      "fake_probability": 0.4297
+    },
+    {
+      "frame_index": 7,
+      "timestamp_seconds": 15.833,
+      "fake_probability": 0.4424
+    }
+  ],
+  "suspicious_windows": [],
+  "strongest_frame": {
+    "timestamp": "00:00.0",
+    "fake_probability": 0.469
+  },
+  "annotated_video_path": "outputs/faceforensics_c23_test_predictions/videos/366_FaceShifter_579_701_annotated.mp4"
+}

@@ -1,0 +1,40 @@
+{
+  "external_directory": "d:\\Epoch1.0\\Video\\deepfake_detector\\data\\external_test",
+  "total_evaluated": 3,
+  "results": [
+    {
+      "video_name": "unseen_deepfake_actor_scam.mp4",
+      "ground_truth": "FAKE",
+      "prediction": "UNCERTAIN",
+      "deepfake_label": "UNCERTAIN",
+      "real_probability": 0.5072,
+      "fake_probability": 0.4928,
+      "confidence": 0.7167,
+      "uncertainty": 0.46,
+      "scam_signals": []
+    },
+    {
+      "video_name": "unseen_deepfake_faceswap_ad.mp4",
+      "ground_truth": "FAKE",
+      "prediction": "UNCERTAIN",
+      "deepfake_label": "UNCERTAIN",
+      "real_probability": 0.4932,
+      "fake_probability": 0.5068,
+      "confidence": 0.7075,
+      "uncertainty": 0.46,
+      "scam_signals": []
+    },
+    {
+      "video_name": "unseen_real_interview_01.mp4",
+      "ground_truth": "REAL",
+      "prediction": "UNCERTAIN",
+      "deepfake_label": "UNCERTAIN",
+      "real_probability": 0.4782,
+      "fake_probability": 0.5218,
+      "confidence": 0.6771,
+      "uncertainty": 0.46,
+      "scam_signals": []
+    }
+  ],
+  "summary_csv": "d:\\Epoch1.0\\Video\\deepfake_detector\\outputs\\external_test_report.csv"
+}
