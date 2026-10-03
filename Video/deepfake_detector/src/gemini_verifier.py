@@ -174,7 +174,7 @@ Respond STRICTLY in valid JSON format with the following keys:
                 headers={"Content-Type": "application/json"},
                 method="POST"
             )
-            with urllib.request.urlopen(req, timeout=12) as response:
+            with urllib.request.urlopen(req, timeout=25) as response:
                 if response.status == 200:
                     resp_body = response.read().decode("utf-8")
                     data = json.loads(resp_body)

@@ -19,14 +19,19 @@ export const setBackendPort = (port: string): void => {
 };
 
 export const getBaseApiUrl = (): string => {
-  // Uses Next.js proxy route by default, or allows direct port connection
-  return "";
+  if (typeof window !== "undefined") {
+    const customPort = localStorage.getItem(STORAGE_PORT_KEY);
+    if (customPort) {
+      return `http://127.0.0.1:${customPort}`;
+    }
+  }
+  return process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
 };
 
-// Create Axios Instance
+// Create Axios Instance with direct backend connection and 300s CPU inference timeout
 export const apiClient: AxiosInstance = axios.create({
   baseURL: getBaseApiUrl(),
-  timeout: 120000, // 120s for ML model inferences on CPU
+  timeout: 300000, // 300s (5 mins) for heavy CPU multimodal inferences
   headers: {
     "Accept": "application/json",
   },
@@ -176,12 +181,21 @@ export const forensicApi = {
    * @param file Audio file to upload
    * @param onProgress Optional progress callback
    */
+  /**
+   * Analyze audio file using AudioCNN model
+   * POST /api/v1/audio/analyze (or alias /analyze-audio)
+   * @param file Audio file to upload
+   * @param onProgress Optional progress callback
+   */
   async analyzeAudio(file: File, onProgress?: ProgressCallback): Promise<AudioForensicOutput> {
     const formData = new FormData();
     formData.append("file", file);
+    const backendUrl = getBaseApiUrl();
 
     try {
-      const response = await apiClient.post<AudioForensicOutput>("/api/v1/audio/analyze", formData, {
+      const response = await axios.post<AudioForensicOutput>(`${backendUrl}/api/v1/audio/analyze`, formData, {
+        timeout: 300000,
+        headers: { "Content-Type": "multipart/form-data" },
         onUploadProgress: (progressEvent: AxiosProgressEvent) => {
           if (progressEvent.total) {
             const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
@@ -190,18 +204,9 @@ export const forensicApi = {
         },
       });
       return response.data;
-    } catch (proxyErr) {
-      console.warn("Proxy call failed, connecting directly to backend at 127.0.0.1:8000...", proxyErr);
-      const direct = await axios.post<AudioForensicOutput>("http://127.0.0.1:8000/api/v1/audio/analyze", formData, {
-        timeout: 120000,
-        onUploadProgress: (progressEvent: AxiosProgressEvent) => {
-          if (progressEvent.total) {
-            const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-            onProgress?.(percent, `Uploading Audio (${percent}%)...`);
-          }
-        },
-      });
-      return direct.data;
+    } catch (err) {
+      console.error("Audio analysis request failed:", err);
+      throw err;
     }
   },
 
@@ -214,9 +219,12 @@ export const forensicApi = {
   async analyzeVideo(file: File, onProgress?: ProgressCallback): Promise<any> {
     const formData = new FormData();
     formData.append("file", file);
+    const backendUrl = getBaseApiUrl();
 
     try {
-      const response = await apiClient.post<any>("/api/v1/video/analyze", formData, {
+      const response = await axios.post<any>(`${backendUrl}/api/v1/video/analyze`, formData, {
+        timeout: 300000, // 5 minutes for CPU inference
+        headers: { "Content-Type": "multipart/form-data" },
         onUploadProgress: (progressEvent: AxiosProgressEvent) => {
           if (progressEvent.total) {
             const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
@@ -225,18 +233,9 @@ export const forensicApi = {
         },
       });
       return response.data;
-    } catch (proxyErr) {
-      console.warn("Proxy call failed, connecting directly to backend at 127.0.0.1:8000...", proxyErr);
-      const direct = await axios.post<any>("http://127.0.0.1:8000/api/v1/video/analyze", formData, {
-        timeout: 120000,
-        onUploadProgress: (progressEvent: AxiosProgressEvent) => {
-          if (progressEvent.total) {
-            const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-            onProgress?.(percent, `Uploading Video Stream (${percent}%)...`);
-          }
-        },
-      });
-      return direct.data;
+    } catch (err) {
+      console.error("Video analysis request failed:", err);
+      throw err;
     }
   },
 
@@ -249,9 +248,12 @@ export const forensicApi = {
   async analyzeImage(file: File, onProgress?: ProgressCallback): Promise<any> {
     const formData = new FormData();
     formData.append("file", file);
+    const backendUrl = getBaseApiUrl();
 
     try {
-      const response = await apiClient.post<any>("/api/v1/image/analyze", formData, {
+      const response = await axios.post<any>(`${backendUrl}/api/v1/image/analyze`, formData, {
+        timeout: 300000,
+        headers: { "Content-Type": "multipart/form-data" },
         onUploadProgress: (progressEvent: AxiosProgressEvent) => {
           if (progressEvent.total) {
             const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
@@ -260,18 +262,10 @@ export const forensicApi = {
         },
       });
       return response.data;
-    } catch (proxyErr) {
-      console.warn("Proxy call failed, connecting directly to backend at 127.0.0.1:8000...", proxyErr);
-      const direct = await axios.post<any>("http://127.0.0.1:8000/api/v1/image/analyze", formData, {
-        timeout: 120000,
-        onUploadProgress: (progressEvent: AxiosProgressEvent) => {
-          if (progressEvent.total) {
-            const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-            onProgress?.(percent, `Uploading Image File (${percent}%)...`);
-          }
-        },
-      });
-      return direct.data;
+    } catch (err) {
+      console.error("Image analysis request failed:", err);
+      throw err;
     }
   },
 };
+
